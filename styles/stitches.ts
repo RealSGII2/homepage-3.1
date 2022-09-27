@@ -12,6 +12,9 @@ export const { styled, css, globalCss, keyframes, createTheme, theme } =
 				'fg-body': '#5F6B7D',
 
 				'border-default': '#DADEE6',
+				'border-dark': '#C2C5CC',
+
+				'dot-dark': '#8A8E99',
 
 				// 'brand-emphasis': '#47b6cb',
 				// 'brand-gradientLeft': '#468df5',

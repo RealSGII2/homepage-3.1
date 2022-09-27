@@ -1,5 +1,5 @@
 import { styled } from 'styles/stitches';
-import type { FC, ReactNode } from 'react'
+import type { FC, ReactNode } from 'react';
 
 const ContentBox = styled('section', {
 	boxSizing: 'content-box',
@@ -10,28 +10,61 @@ const ContentBox = styled('section', {
 	width: '100%',
 	maxWidth: 1260,
 
-    variants: {
-        hero: {
-            true: {
-                maxWidth: 'calc(1260px + 3rem)',
-                height: 'calc(100vh - 72px * 3)',
+	'& > div': {
+		paddingRight: 'max(3rem, 35%)',
+	},
 
-                paddingBottom: 72,
-                paddingRight: 0,
-                paddingTop: 128,
-            }
-        }
-    }
+	variants: {
+		hero: {
+			true: {
+				maxWidth: 'calc(1260px + 3rem)',
+				minHeight: 'calc(100vh - 72px * 3)',
+
+				paddingBottom: 72,
+				paddingRight: 0,
+				paddingTop: 128,
+
+				'& > div': {
+					minHeight: 'calc(100vh - 72px * 3)',
+					height: 'calc(100vh - 72px * 3)',
+					width: '100%',
+				},
+			},
+		},
+		heroOverlay: {
+			true: {
+				maxWidth: '100vw',
+				padding: 0,
+				margin: 0,
+
+				width: '100%',
+				height: '100vh',
+
+				paddingTop: 72,
+
+				left: 0,
+
+				'& > div': {
+					width: '100%',
+					height: '100vh',
+					paddingRight: '0',
+				},
+
+				zIndex: 2,
+
+				position: 'absolute',
+                top: 0,
+			},
+		},
+	},
 });
 
-export const HeroBox: FC<{ children: ReactNode }> = ({ children }) => {
-    return (
-        <ContentBox hero>
-            <div style={{ paddingRight: 'max(3rem, 35%)' }}>
-                {children}
-            </div>
-        </ContentBox>
-    )
-}
+export const HeroBox: FC<{ children: ReactNode, overlay?: boolean }> = ({ children, overlay }) => {
+	return (
+		<ContentBox hero heroOverlay={overlay}>
+			<div>{children}</div>
+		</ContentBox>
+	);
+};
 
 export default ContentBox;

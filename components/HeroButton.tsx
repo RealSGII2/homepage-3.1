@@ -13,8 +13,7 @@ const HeroButton = styled('button', {
 	border: 'none',
 	borderRadius: 99,
 
-	backgroundColor: '$brand-emphasisDesaturated',
-	backgroundImage: '$brand-gradientDesaturated',
+	backgroundColor: 'transparent',
 
 	fontSize: 18,
 	fontWeight: 500,
@@ -47,8 +46,6 @@ const HeroButton = styled('button', {
         backgroundColor: '$brand-emphasisDesaturated',
         backgroundImage: '$brand-gradientDesaturated',
 
-        opacity: 1,
-
         transition: transformTransition,
     },
 
@@ -73,6 +70,25 @@ const HeroButton = styled('button', {
 
     '&:focus::before': {
         boxShadow: '$brand-focus',
+    },
+
+    variants: {
+        secondary: {
+            true: {
+                '&::before': {
+                    backgroundColor: 'transparent',
+                    backgroundImage: 'none',
+                },
+                
+                '&::after': {
+                    opacity: 0.3,
+                },
+                
+                '&:hover::after': {
+                    opacity: 0.65,
+                },
+            }
+        }
     }
 });
 

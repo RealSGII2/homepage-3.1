@@ -12,6 +12,8 @@ const globalStyles = globalCss({
 	},
 
 	body: {
+		position: 'relative',
+
 		backgroundColor: '$bg-default',
 
 		fontFamily: '$sans-serif',
