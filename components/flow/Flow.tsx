@@ -11,6 +11,13 @@ import WebsiteNode from './WebsiteNode';
 import DevNode from './DevNode';
 import NoteNode from './NoteNode';
 
+const nodeTypes = {
+	typed: TypedNode,
+	website: WebsiteNode,
+	dev: DevNode,
+	note: NoteNode,
+}
+
 type FlowProps = {
 	initialNodes: Node[];
 	initialEdges?: Edge[];
@@ -141,12 +148,7 @@ const Flow: FC<FlowProps> = ({ initialNodes, initialEdges, headlineRef }) => {
 			onNodesChange={onNodesChange}
 			onEdgesChange={onEdgesChange}
 			onConnect={onConnect}
-			nodeTypes={{
-				typed: TypedNode,
-				website: WebsiteNode,
-				dev: DevNode,
-				note: NoteNode,
-			}}
+			nodeTypes={nodeTypes}
 			defaultEdgeOptions={{
 				animated: true,
 				style: {

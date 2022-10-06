@@ -4,6 +4,7 @@ import type { FC } from 'react';
 import type { NodeProps } from 'react-flow-renderer';
 import { handleStyles, InputLabel, StyledNode } from './_shared';
 import { styled } from 'styles/stitches';
+import HeroButton from 'components/HeroButton';
 
 const StatusMessage = styled('div', {
 	padding: '6px 8px',
@@ -64,6 +65,10 @@ const WebsiteNode: FC<NodeProps<WebsiteNodeProps>> = ({ data }) => {
 				<InputLabel blue>Trait #2</InputLabel>
 
 				<InputLabel blue>Trait #3</InputLabel>
+
+				<HeroButton small block noHoverSize className='nodrag'>
+					<span>View website</span>
+				</HeroButton>
 			</main>
 		</StyledNode>
 	);

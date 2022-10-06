@@ -7,10 +7,11 @@ export const MutedColoredBox = styled('div', {
 
 export const GriddedHeroBox = styled('div', {
 	background: `
-         linear-gradient(90deg, $colors$bg-default 20px, transparent 1%) center,
+         linear-gradient(270deg, $colors$bg-default 20px, transparent 1%) center,
          linear-gradient($colors$bg-default 20px, transparent 1%) center,
          $colors$border-dark`,
 	backgroundSize: '22px 22px',
+	backgroundPosition: '0 2px',
 
 	position: 'relative',
 
