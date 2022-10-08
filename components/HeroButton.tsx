@@ -1,3 +1,4 @@
+import darkTheme from 'styles/darkTheme';
 import { styled } from 'styles/stitches';
 
 const transformTransition = 'transform 275ms ease-out';
@@ -84,6 +85,18 @@ const HeroButton = styled('button', {
 	variants: {
 		secondary: {
 			true: {
+				[`.${darkTheme} &`]: {
+					color: '#8bcbd8',
+
+					'&::after': {
+						opacity: 0.2,
+					},
+	
+					'&:hover::after': {
+						opacity: 0.3,
+					},
+				},
+
 				'&::before': {
 					backgroundColor: 'transparent',
 					backgroundImage: 'none',

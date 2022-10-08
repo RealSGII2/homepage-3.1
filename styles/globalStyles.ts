@@ -15,6 +15,7 @@ const globalStyles = globalCss({
 		position: 'relative',
 
 		backgroundColor: '$bg-default',
+		color: '$fg-default',
 
 		fontFamily: '$sans-serif',
 
@@ -33,14 +34,14 @@ const globalStyles = globalCss({
 
 	a: {
 		textDecoration: 'none',
-		color: '#0781be',
+		color: '$fg-hero',
 
-		boxShadow: '0 2px rgba(7, 129, 190, 0.4)',
+		boxShadow: '0 2px $colors$fg-hero-faded',
 
 		transition: '125ms ease-out',
 
 		'&:hover': {
-			boxShadow: '0 3px rgba(7, 129, 190, 0.4), 0 3px rgba(7, 129, 190, 1)',
+			boxShadow: '0 3px $colors$fg-hero-faded, 0 3px $colors$fg-hero',
 		},
 	},
 });

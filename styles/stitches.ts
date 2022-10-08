@@ -10,6 +10,8 @@ export const { styled, css, globalCss, keyframes, createTheme, theme } =
 				// 'fg-default': '#2D3340',
 				'fg-default': '#000000',
 				'fg-body': '#5F6B7D',
+				'fg-hero': '#0781be',
+				'fg-hero-faded': 'rgba(7, 129, 190, 0.4)',
 
 				'border-default': '#DADEE6',
 				'border-dark': '#C2C5CC',
@@ -46,6 +48,7 @@ export const { styled, css, globalCss, keyframes, createTheme, theme } =
 
 			shadows: {
 				'brand-focus': '0 0 0 3px $colors$brand-focus',
+				appbar: '0 1px 3px rgba(53, 60, 77, 0.15)',
 			},
 
 			fonts: {

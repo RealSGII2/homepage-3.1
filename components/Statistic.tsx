@@ -22,7 +22,7 @@ const StatisticRoot = styled('div', {
 
 			// color: 'transparent',
 			// '-webkit-text-fill-color': 'transparent',
-            color: '#0781be',
+            color: '$fg-hero',
 		},
 	},
 });

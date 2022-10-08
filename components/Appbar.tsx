@@ -34,7 +34,7 @@ const AppbarRoot = styled('nav', {
 	variants: {
 		hasScrolled: {
 			true: {
-				boxShadow: '0 1px 3px rgba(53, 60, 77, 0.15)',
+				boxShadow: '$appbar',
 			},
 		},
 	},

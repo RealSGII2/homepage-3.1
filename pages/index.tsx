@@ -6,12 +6,12 @@ import Flow from 'components/flow/Flow';
 import TypedNode from 'components/flow/TypedNode';
 import WebsiteNode from 'components/flow/WebsiteNode';
 import HeroButton from 'components/HeroButton';
+import * as ProjectCard from 'components/ProjectCard';
 import Statistic from 'components/Statistic';
 import * as Text from 'components/Text';
 import type { NextPage } from 'next';
 import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
 import { Edge, Node, Position } from 'react-flow-renderer';
-import { Parallax } from 'react-scroll-parallax';
 
 const showcaseNodes: Node[] = [
 	{
@@ -132,51 +132,128 @@ const Home: NextPage = () => {
 					</div>
 				</HeroBox>
 			</GriddedHeroBox>
+			<MutedColoredBox>
+				<ContentBox>
+					<Text.SectionTitle>About Me</Text.SectionTitle>
+					<Text.Body>
+						Hello, I&apos;m William Wise. I&apos;m a web developer
+						and designer based in Arkansas. I like to build
+						creatively, and exploring new things.
+					</Text.Body>
+					<Text.Body>
+						My first web design experience was all the way back in
+						2013, where I used{' '}
+						<a
+							href='https://www.wix.com/'
+							target='_blank'
+							rel='noreferrer'
+						>
+							Wix
+						</a>{' '}
+						(a little-more-than customizeable website creation
+						website). Three years later, I was tired of being broke
+						and the limitations of Wix, so I hopped onto w3schools
+						and learned HTML. Growing from there, I moved onto EJS,
+						then Vue.js, then finally React. My favorite framework
+						ended up being{' '}
+						<a
+							href='https://nextjs.org/conf'
+							target='_blank'
+							rel='noreferrer'
+						>
+							Next.js
+						</a>{' '}
+						with React.
+					</Text.Body>
+					<Text.Body>
+						In my spare time, I like to play (relatively few) video
+						games, do graphic design, 3D model, play with audio, and
+						just do &quot;web doodles&quot; (basically
+						non-functional websites just to make them).
+					</Text.Body>
+				</ContentBox>
 
-			<Parallax speed={-15}>
-				<MutedColoredBox>
-					<ContentBox>
-						<Text.SectionTitle>About Me</Text.SectionTitle>
-						<Text.Body>
-							Hello, I&apos;m William Wise. I&apos;m a web
-							developer and designer based in Arkansas. I like to
-							build creatively, and exploring new things.
-						</Text.Body>
-						<Text.Body>
-							My first web design experience was all the way back
-							in 2013, where I used{' '}
-							<a
-								href='https://www.wix.com/'
-								target='_blank'
-								rel='noreferrer'
-							>
-								Wix
-							</a>{' '}
-							(a little-more-than customizeable website creation
-							website). Three years later, I was tired of being
-							broke and the limitations of Wix, so I hopped onto
-							w3schools and learned HTML. Growing from there, I
-							moved onto EJS, then Vue.js, then finally React. My
-							favorite framework ended up being{' '}
-							<a
-								href='https://nextjs.org/conf'
-								target='_blank'
-								rel='noreferrer'
-							>
-								Next.js
-							</a>{' '}
-							with React.
-						</Text.Body>
-						<Text.Body>
-							In my spare time, I like to play (relatively few)
-							video games, do graphic design, 3D model, play with
-							audio, and just do &quot;web doodles&quot;
-							(basically non-functional websites just to make
-							them).
-						</Text.Body>
-					</ContentBox>
-				</MutedColoredBox>
-			</Parallax>
+				<ContentBox>
+					<Text.SectionTitle style={{ marginTop: 48 }}>
+						Technical Skills
+					</Text.SectionTitle>
+					<Flex style={{ gap: 8 }}>
+						<Text.Skill>Typescript</Text.Skill>
+						<Text.Skill>TSX</Text.Skill>
+						<Text.Skill>HTML</Text.Skill>
+						<Text.Skill>CSS</Text.Skill>
+						<Text.Skill>Sass</Text.Skill>
+						<Text.Skill>React.js</Text.Skill>
+						<Text.Skill>Next.js</Text.Skill>
+						<Text.Skill>Node.js</Text.Skill>
+						<Text.Skill>Git</Text.Skill>
+						<Text.Skill>GitHub</Text.Skill>
+					</Flex>
+				</ContentBox>
+
+				<ContentBox>
+					<Text.SectionTitle style={{ marginTop: 48 }}>
+						Featured Projects
+					</Text.SectionTitle>
+					<Flex>
+						<ProjectCard.Root>
+							<ProjectCard.Image src='https://cdn.realsgii2.dev/s/y3cnNv.png' />
+
+							<ProjectCard.Body>
+								<ProjectCard.Title>
+									West Swim & Dive
+								</ProjectCard.Title>
+
+								<Text.Body>
+									A forums-styled website built for a Swim &
+									Dive team for a local high school. It
+									features custom pages and moderation tools.
+								</Text.Body>
+
+								<div style={{ flex: 1 }} />
+
+								<Flex style={{ alignItems: 'center' }}>
+									<HeroButton>
+										<span>Visit</span>
+									</HeroButton>
+
+									<span style={{ marginLeft: 16 }}>
+										Source code is not available.
+									</span>
+								</Flex>
+							</ProjectCard.Body>
+						</ProjectCard.Root>
+
+						<ProjectCard.Root style={{ marginLeft: 16 }}>
+							<ProjectCard.Image src='https://cdn.realsgii2.dev/s/inF5WP.png' />
+
+							<ProjectCard.Body>
+								<ProjectCard.Title>PATHOS-II</ProjectCard.Title>
+
+								<Text.Body>
+									A clone of the PathOS terminal UI from the
+									horror game, SOMA. It is a showcase of the
+									capabilities of CSS&apos;s 9-slice imaging
+									method. It features custom sound effects and
+									cursors as well.
+								</Text.Body>
+
+								<div style={{ flex: 1 }} />
+
+								<Flex style={{ alignItems: 'center' }}>
+									<HeroButton>
+										<span>Visit</span>
+									</HeroButton>
+
+									<HeroButton secondary style={{ marginLeft: 8 }}>
+										<span>View source</span>
+									</HeroButton>
+								</Flex>
+							</ProjectCard.Body>
+						</ProjectCard.Root>
+					</Flex>
+				</ContentBox>
+			</MutedColoredBox>
 
 			{/* <HeroBox overlay>
 				<Flow

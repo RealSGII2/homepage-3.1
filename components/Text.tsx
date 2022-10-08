@@ -43,6 +43,19 @@ export const Body = styled('p', sharedStyles, {
 	color: '$fg-body',
 })
 
+export const Skill = styled('span', sharedStyles, {
+	fontSize: 18,
+	color: '$fg-body',
+	backgroundColor: '$bg-default',
+
+	borderRadius: 8,
+
+	height: 44,
+	padding: '0 1rem',
+
+	lineHeight: '44px',
+})
+
 export const HeroUnderlinedBrand = styled('span', {
 	position: 'relative',
 	

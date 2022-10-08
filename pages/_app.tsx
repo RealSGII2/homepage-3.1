@@ -4,13 +4,19 @@ import Head from 'next/head';
 import globalStyles from 'styles/globalStyles';
 import Logo from 'components/Logo';
 import HeroButton from 'components/HeroButton';
-import { ParallaxProvider } from 'react-scroll-parallax';
+import { useEffect } from 'react';
+import darkTheme from 'styles/darkTheme';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	globalStyles();
 
+	useEffect(() => {
+		if (typeof document === 'undefined') return;
+		document.body.className = darkTheme;
+	}, [])
+
 	return (
-		<ParallaxProvider>
+		<>
 			<Appbar.Root>
 				<Logo height={20} />
 				<div style={{ flex: 1 }} />
@@ -33,7 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Appbar.Root>
 
 			<Component {...pageProps} />
-		</ParallaxProvider >
+		</>
 	);
 }
 
