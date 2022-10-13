@@ -8,8 +8,8 @@ const darkTheme = createTheme({
 		// 'fg-default': '#2D3340',
 		'fg-default': '#ced4da',
 		'fg-body': '#adb5bd',
-        'fg-hero': '#8bcbd8',
-        'fg-hero-faded': 'rgba(139, 203, 216, 0.4)',
+		'fg-hero': '#8bcbd8',
+		'fg-hero-faded': 'rgba(139, 203, 216, 0.4)',
 
 		'border-default': '#DADEE6',
 		'border-dark': '#5c5f66',
@@ -46,7 +46,8 @@ const darkTheme = createTheme({
 
 	shadows: {
 		'brand-focus': '0 0 0 3px $colors$brand-focus',
-        appbar: '0 1px 3px rgba(03, 10, 27, 0.25)',
+		appbar: '0 1px 3px rgba(03, 10, 27, 0.25)',
+		medium: 'rgb(3 10 27 / 25%) 0px 10px 16px',
 	},
 
 	fonts: {

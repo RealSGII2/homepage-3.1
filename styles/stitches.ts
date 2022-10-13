@@ -49,10 +49,15 @@ export const { styled, css, globalCss, keyframes, createTheme, theme } =
 			shadows: {
 				'brand-focus': '0 0 0 3px $colors$brand-focus',
 				appbar: '0 1px 3px rgba(53, 60, 77, 0.15)',
+				medium: 'rgb(53 60 77 / 10%) 0px 10px 16px',
 			},
 
 			fonts: {
 				'sans-serif': "'Fira Sans', sans-serif",
 			},
 		},
+
+		media: {
+			'smallScreen': '(max-width: 600px)'
+		}
 	});

@@ -4,6 +4,8 @@ import { styled } from 'styles/stitches';
 const transformTransition = 'transform 275ms ease-out';
 
 const HeroButton = styled('button', {
+	outline: 'none',
+
 	cursor: 'pointer',
 
 	position: 'relative',
@@ -20,7 +22,7 @@ const HeroButton = styled('button', {
 	fontWeight: 500,
 	color: '#000000',
 
-	display: 'flex',
+	display: 'inline-flex',
 	alignItems: 'center',
 	justifyContent: 'center',
 
@@ -61,7 +63,7 @@ const HeroButton = styled('button', {
 		transition: `opacity 175ms ease, ${transformTransition}`,
 	},
 
-	'&:hover::after': {
+	'&:hover::after, &:active::after': {
 		opacity: 1,
 	},
 
@@ -82,6 +84,10 @@ const HeroButton = styled('button', {
 		transition: 'none',
 	},
 
+	'&:focus-visible::before': {
+		boxShadow: '0 0 0 2px $colors$bg-default, 0 0 0 4px $colors$fg-hero',
+	},
+
 	variants: {
 		secondary: {
 			true: {
@@ -91,8 +97,8 @@ const HeroButton = styled('button', {
 					'&::after': {
 						opacity: 0.2,
 					},
-	
-					'&:hover::after': {
+
+					'&:hover::after, &:active::after': {
 						opacity: 0.3,
 					},
 				},
@@ -106,12 +112,18 @@ const HeroButton = styled('button', {
 					opacity: 0.3,
 				},
 
-				'&:hover::after': {
+				'&:hover::after, &:active::after': {
 					opacity: 0.5,
 				},
 
 				'&:focus::before': {
-					boxShadow: '$brand-focus, inset 0 0 0 1px $colors$brand-gradientRightSaturated',
+					boxShadow:
+						'$brand-focus, inset 0 0 0 1px $colors$brand-gradientRightSaturated',
+				},
+
+				'&:focus-visible::before': {
+					boxShadow:
+						'0 0 0 2px $colors$bg-default, 0 0 0 4px $colors$fg-hero, inset 0 0 0 1px $colors$fg-hero',
 				},
 			},
 		},
@@ -127,6 +139,13 @@ const HeroButton = styled('button', {
 				fontSize: 14,
 			},
 		},
+		medium: {
+			true: {
+				height: 38,
+				padding: '0 1rem',
+				fontSize: 16,
+			},
+		},
 		noHoverSize: {
 			true: {},
 			undefined: {
@@ -135,35 +154,50 @@ const HeroButton = styled('button', {
 				},
 			},
 		},
-		icon: {
+		tertiary: {
 			true: {
-				height: 36,
-				width: 36,
-				padding: 0,
+				padding: '0 0.75rem',
 
 				color: '$fg-body',
 
 				transition: 'color 275ms ease-out',
-				
+
 				'&::before': {
 					backgroundColor: 'transparent',
 					backgroundImage: 'none',
 				},
 
-				'&:hover': {
-					color: '$fg-default'
+				'&:hover, &:active': {
+					color: '$fg-default',
 				},
 
-				'&:hover::after': {
+				'&:hover::after, &:active::after': {
 					opacity: 0.3,
-					transform: 'scale(1.125)'
 				},
 
 				'&:focus::before': {
-					boxShadow: '$brand-focus, inset 0 0 0 1px $colors$brand-gradientRightSaturated',
+					boxShadow:
+						'$brand-focus, inset 0 0 0 1px $colors$brand-gradientRightSaturated',
 				},
-			}
-		}
+
+				'&:focus-visible::before': {
+					boxShadow:
+						'0 0 0 2px $colors$bg-default, 0 0 0 4px $colors$fg-hero',
+				},
+			},
+		},
+		tertiaryAlt: {
+			true: {
+				color: '$fg-default',
+			},
+		},
+		icon: {
+			true: {
+				height: 36,
+				width: 36,
+				padding: '0',
+			},
+		},
 	},
 });
 

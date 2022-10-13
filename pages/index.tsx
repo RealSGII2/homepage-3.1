@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Image from 'next/image';
 import { GriddedHeroBox, MutedColoredBox } from 'components/ColoredBox';
 import ContentBox, { HeroBox } from 'components/ContentBox';
 import Flex from 'components/Flex';
@@ -12,6 +13,7 @@ import * as Text from 'components/Text';
 import type { NextPage } from 'next';
 import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
 import { Edge, Node, Position } from 'react-flow-renderer';
+import { styled } from 'styles/stitches';
 
 const showcaseNodes: Node[] = [
 	{
@@ -69,6 +71,39 @@ const showcaseNodes: Node[] = [
 
 const showcaseEdges: Edge[] = [{ id: 'e1-2', source: '1', target: '2' }];
 
+const HeroImage = styled('div', {
+	borderRadius: 24,
+	overflow: 'hidden',
+	transition: '125ms ease-out',
+
+	position: 'relative',
+
+	'& > *': {
+		left: '50%',
+
+		transform: 'translateX(-50%) scale(1.1)',
+		transition: '125ms ease-out',
+		margin: 0,
+	},
+
+	'&:hover > *': {
+		transform: 'translateX(-50%) scale(1.035)',
+	},
+
+	'@smallScreen': {
+		width: 'calc(100vw - 4rem)',
+
+		'& > *': {
+			width: '100%',
+			transform: 'translateX(-50%) scale(1.1)',
+		},
+
+		'&:hover > *': {
+			transform: 'translateX(-50%) scale(1.1)',
+		},
+	},
+});
+
 const Home: NextPage = () => {
 	const headlineRef = useRef();
 
@@ -86,7 +121,10 @@ const Home: NextPage = () => {
 						<Text.FrontHeroText
 							style={{ marginTop: 0, marginBottom: 0 }}
 						>
-							Web Design & Development <br />
+							Web Design & Development{' '}
+							<span data-remove-small>
+								<br />
+							</span>
 							Done{' '}
 							<Text.HeroUnderlinedBrand>
 								Simple, Modern, & Right
@@ -122,7 +160,7 @@ const Home: NextPage = () => {
 							</HeroButton>
 						</Flex>
 
-						<Flex css={{ '& > *': { marginRight: 32 } }}>
+						<Flex gap={16} flipOnSmall>
 							<Statistic title='Happy Users (2021)'>
 								27,983
 							</Statistic>
@@ -134,50 +172,68 @@ const Home: NextPage = () => {
 			</GriddedHeroBox>
 			<MutedColoredBox>
 				<ContentBox>
-					<Text.SectionTitle>About Me</Text.SectionTitle>
-					<Text.Body>
-						Hello, I&apos;m William Wise. I&apos;m a web developer
-						and designer based in Arkansas. I like to build
-						creatively, and exploring new things.
-					</Text.Body>
-					<Text.Body>
-						My first web design experience was all the way back in
-						2013, where I used{' '}
-						<a
-							href='https://www.wix.com/'
-							target='_blank'
-							rel='noreferrer'
-						>
-							Wix
-						</a>{' '}
-						(a little-more-than customizeable website creation
-						website). Three years later, I was tired of being broke
-						and the limitations of Wix, so I hopped onto w3schools
-						and learned HTML. Growing from there, I moved onto EJS,
-						then Vue.js, then finally React. My favorite framework
-						ended up being{' '}
-						<a
-							href='https://nextjs.org/conf'
-							target='_blank'
-							rel='noreferrer'
-						>
-							Next.js
-						</a>{' '}
-						with React.
-					</Text.Body>
-					<Text.Body>
-						In my spare time, I like to play (relatively few) video
-						games, do graphic design, 3D model, play with audio, and
-						just do &quot;web doodles&quot; (basically
-						non-functional websites just to make them).
-					</Text.Body>
+					<Flex style={{ padding: 0 }} flipOnSmall gap={32}>
+						<div style={{ width: 256, flexShrink: 0 }}>
+							<HeroImage>
+								<Image
+									alt='A photo of me, William.'
+									src='/img/portrait.png'
+									width='300px'
+									height='300px'
+								/>
+							</HeroImage>
+						</div>
+						<div>
+							<Text.SectionTitle style={{ marginTop: 0 }}>
+								About Me
+							</Text.SectionTitle>
+							<Text.Body>
+								Hello, I&apos;m William Wise. I&apos;m a web
+								developer and designer based in Arkansas. I like
+								to build creatively, and exploring new things.
+							</Text.Body>
+							<Text.Body>
+								My first web design experience was all the way
+								back in 2013, where I used{' '}
+								<a
+									href='https://www.wix.com/'
+									target='_blank'
+									rel='noreferrer'
+								>
+									Wix
+								</a>{' '}
+								(a little-more-than customizeable website
+								creation website). Three years later, I was
+								tired of being broke and the limitations of Wix,
+								so I hopped onto w3schools and learned HTML.
+								Growing from there, I moved onto EJS, then
+								Vue.js, then finally React. My favorite
+								framework ended up being{' '}
+								<a
+									href='https://nextjs.org/conf'
+									target='_blank'
+									rel='noreferrer'
+								>
+									Next.js
+								</a>{' '}
+								with React.
+							</Text.Body>
+							<Text.Body>
+								In my spare time, I like to play (relatively
+								few) video games, do graphic design, 3D model,
+								play with audio, and just do &quot;web
+								doodles&quot; (basically non-functional websites
+								just to make them).
+							</Text.Body>
+						</div>
+					</Flex>
 				</ContentBox>
 
 				<ContentBox>
 					<Text.SectionTitle style={{ marginTop: 48 }}>
 						Technical Skills
 					</Text.SectionTitle>
-					<Flex style={{ gap: 8 }}>
+					<Flex style={{ gap: 8 }} scrollerOnSmall>
 						<Text.Skill>Typescript</Text.Skill>
 						<Text.Skill>TSX</Text.Skill>
 						<Text.Skill>HTML</Text.Skill>
@@ -195,7 +251,7 @@ const Home: NextPage = () => {
 					<Text.SectionTitle style={{ marginTop: 48 }}>
 						Featured Projects
 					</Text.SectionTitle>
-					<Flex>
+					<Flex scrollerOnSmall>
 						<ProjectCard.Root>
 							<ProjectCard.Image src='https://cdn.realsgii2.dev/s/y3cnNv.png' />
 
@@ -245,7 +301,10 @@ const Home: NextPage = () => {
 										<span>Visit</span>
 									</HeroButton>
 
-									<HeroButton secondary style={{ marginLeft: 8 }}>
+									<HeroButton
+										secondary
+										style={{ marginLeft: 8 }}
+									>
 										<span>View source</span>
 									</HeroButton>
 								</Flex>

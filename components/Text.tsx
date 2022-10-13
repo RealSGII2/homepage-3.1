@@ -31,6 +31,14 @@ const sharedStyles = css({
 export const FrontHeroText = styled('h1', sharedStyles, {
 	fontSize: 56,
 	fontWeight: 700,
+
+	'@smallScreen': {
+		fontSize: 36,
+
+		'& [data-remove-small]': {
+			display: 'none'
+		}
+	}
 });
 
 export const SectionTitle = styled('h2', sharedStyles, {

@@ -1,7 +1,7 @@
 import { styled } from 'styles/stitches';
 
 export const Root = styled('div', {
-	maxWidth: 560,
+	maxWidth: 'min(560px, calc(100vw - 4rem))',
 
 	display: 'flex',
 	flexDirection: 'column',
@@ -12,7 +12,7 @@ export const Root = styled('div', {
 	transition: '135ms ease-out',
 
 	'&:hover': {
-		boxShadow: 'rgb(53 60 77 / 10%) 0px 10px 16px',
+		boxShadow: '$medium'
 	},
 });
 
@@ -32,7 +32,7 @@ export const Title = styled('h2', {
 });
 
 export const Image = styled('img', {
-	width: 560,
+	maxWidth: 560,
 	borderTopLeftRadius: 'inherit',
 	borderTopRightRadius: 'inherit',
 });
