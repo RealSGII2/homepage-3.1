@@ -25,10 +25,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 							<ToggleMenuButton />
 						</div>
 						<div>
-							<HeroButton medium tertiary tertiaryAlt>
+							<HeroButton medium tertiary tertiaryAlt as='a' href='#about'>
 								<span>About me</span>
 							</HeroButton>
-							<HeroButton medium tertiary tertiaryAlt>
+							<HeroButton medium tertiary tertiaryAlt as='a' href='#projects'>
 								<span>Featured projects</span>
 							</HeroButton>
 						</div>

@@ -58,6 +58,7 @@ export const { styled, css, globalCss, keyframes, createTheme, theme } =
 		},
 
 		media: {
-			'smallScreen': '(max-width: 600px)'
+			'smallScreen': '(max-width: 600px)',
+			'contentSize': '(max-width: 1260px)'
 		}
 	});

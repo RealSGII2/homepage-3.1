@@ -26,7 +26,7 @@ const Flex = styled('div', {
 		},
 		scrollerOnSmall: {
 			true: {
-				'@smallScreen': {
+				'@contentSize': {
 					marginLeft: '-2rem',
 					marginRight: '-2rem',
 

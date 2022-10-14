@@ -14,6 +14,9 @@ export default function Document() {
 					href='https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Outfit:wght@500&display=swap'
 					rel='stylesheet'
 				/>
+
+				{/* eslint-disable-next-line @next/next/no-title-in-document-head */}
+				<title>William Wise (@RealSGII2)</title>
 			</Head>
 			<body>
 				<Main />

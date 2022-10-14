@@ -32,7 +32,7 @@ const globalStyles = globalCss({
 		color: '#000',
 	},
 
-	a: {
+	'a:not([class])': {
 		textDecoration: 'none',
 		color: '$fg-hero',
 

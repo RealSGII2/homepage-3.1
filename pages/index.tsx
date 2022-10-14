@@ -135,6 +135,7 @@ const Home: NextPage = () => {
 						<Flex style={{ marginTop: 24, marginBottom: 64 }}>
 							<HeroButton
 								style={{ marginRight: 12, paddingRight: 20 }}
+								as='a' href='#about'
 							>
 								<span style={{ marginRight: 8 }}>About me</span>
 
@@ -155,7 +156,7 @@ const Home: NextPage = () => {
 								</svg> */}
 							</HeroButton>
 
-							<HeroButton secondary>
+							<HeroButton secondary  as='a' href='#projects'>
 								<span>My projects</span>
 							</HeroButton>
 						</Flex>
@@ -170,7 +171,7 @@ const Home: NextPage = () => {
 					</div>
 				</HeroBox>
 			</GriddedHeroBox>
-			<MutedColoredBox>
+			<MutedColoredBox id="about">
 				<ContentBox>
 					<Flex style={{ padding: 0 }} flipOnSmall gap={32}>
 						<div style={{ width: 256, flexShrink: 0 }}>
@@ -229,7 +230,7 @@ const Home: NextPage = () => {
 					</Flex>
 				</ContentBox>
 
-				<ContentBox>
+				<ContentBox id="projects">
 					<Text.SectionTitle style={{ marginTop: 48 }}>
 						Technical Skills
 					</Text.SectionTitle>
@@ -269,7 +270,7 @@ const Home: NextPage = () => {
 								<div style={{ flex: 1 }} />
 
 								<Flex style={{ alignItems: 'center' }}>
-									<HeroButton>
+									<HeroButton as='a' href='//www.westswimdive.org/' rel='noreferer' target='_blank'>
 										<span>Visit</span>
 									</HeroButton>
 
@@ -297,13 +298,14 @@ const Home: NextPage = () => {
 								<div style={{ flex: 1 }} />
 
 								<Flex style={{ alignItems: 'center' }}>
-									<HeroButton>
+									<HeroButton as='a' href='//pathos.realsgii2.dev/' rel='noreferer' target='_blank'>
 										<span>Visit</span>
 									</HeroButton>
 
 									<HeroButton
 										secondary
 										style={{ marginLeft: 8 }}
+										as='a' href='//github.com/RealSGII2/pathOS-ui' rel='noreferer' target='_blank'
 									>
 										<span>View source</span>
 									</HeroButton>

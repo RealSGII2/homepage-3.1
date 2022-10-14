@@ -21,6 +21,7 @@ const HeroButton = styled('button', {
 	fontSize: 18,
 	fontWeight: 500,
 	color: '#000000',
+	textDecoration: 'none',
 
 	display: 'inline-flex',
 	alignItems: 'center',
