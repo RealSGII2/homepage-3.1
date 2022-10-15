@@ -12,6 +12,8 @@ import { styled } from 'styles/stitches';
 
 // @ts-ignore
 import { Row, Col } from 'react-flexbox-grid/dist/react-flexbox-grid';
+import Head from 'next/head';
+import Title from 'components/head/Title';
 
 const projects = {
 	featured: [
@@ -101,6 +103,10 @@ const Home: NextPage = () => {
 
 	return (
 		<>
+			<Head>
+				<Title>William Wise (@RealSGII2)</Title>
+			</Head>
+
 			<GriddedHeroBox ref={headlineRef as any}>
 				<HeroBox>
 					<div

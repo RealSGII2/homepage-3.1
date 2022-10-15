@@ -9,7 +9,7 @@ import darkTheme from 'styles/darkTheme';
 
 import 'react-flexbox-grid/dist/react-flexbox-grid.css';
 import Meta from 'components/head/Meta';
-import { Title } from 'components/ProjectCard';
+import Title from 'components/head/Title';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	globalStyles();
