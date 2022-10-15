@@ -3,73 +3,65 @@ import Image from 'next/image';
 import { GriddedHeroBox, MutedColoredBox } from 'components/ColoredBox';
 import ContentBox, { HeroBox } from 'components/ContentBox';
 import Flex from 'components/Flex';
-import Flow from 'components/flow/Flow';
-import TypedNode from 'components/flow/TypedNode';
-import WebsiteNode from 'components/flow/WebsiteNode';
 import HeroButton from 'components/HeroButton';
 import * as ProjectCard from 'components/ProjectCard';
 import Statistic from 'components/Statistic';
 import * as Text from 'components/Text';
 import type { NextPage } from 'next';
-import ReactFlow, { MiniMap, Controls } from 'react-flow-renderer';
-import { Edge, Node, Position } from 'react-flow-renderer';
 import { styled } from 'styles/stitches';
 
-const showcaseNodes: Node[] = [
-	{
-		id: 'note',
-		type: 'note',
-		data: {
-			label: 'Connect the dots to make the perfect website!',
-		},
-		position: { x: 0, y: 0 },
-	},
-	{
-		id: 'dev',
-		type: 'dev',
-		data: {},
-		sourcePosition: Position.Right,
-		position: { x: 300, y: 140 },
-	},
-	{
-		id: 'simple',
-		type: 'typed',
-		data: {
-			label: 'Simple',
-		},
-		sourcePosition: Position.Right,
-		position: { x: 150, y: 0 },
-	},
-	{
-		id: 'modern',
-		type: 'typed',
-		data: {
-			label: 'Modern',
-		},
-		// sourcePosition: Position.Right,
-		position: { x: 150, y: 120 },
-	},
-	{
-		id: 'right',
-		type: 'typed',
-		data: {
-			label: 'Right',
-		},
-		sourcePosition: Position.Right,
-		position: { x: 150, y: 240 },
-	},
-	{
-		id: 'web',
-		type: 'website',
-		data: {
-			label: 'Right',
-		},
-		sourcePosition: Position.Right,
-		position: { x: 350, y: 100 },
-	},
-];
+// @ts-ignore
+import { Row, Col } from 'react-flexbox-grid/dist/react-flexbox-grid';
 
-const showcaseEdges: Edge[] = [{ id: 'e1-2', source: '1', target: '2' }];
+const projects = {
+	featured: [
+		{
+			name: 'West Swim & Dive',
+			image: 'https://cdn.realsgii2.dev/s/y3cnNv.png',
+			description:
+				'A forums-styled website built for a Swim & Dive team for a local high school. It features custom pages and moderation tools.',
+			productionUrl: '//www.westswimdive.org/',
+			sourceUrl: null,
+		},
+		{
+			name: 'PATHOS-II',
+			image: 'https://cdn.realsgii2.dev/s/inF5WP.png',
+			description:
+				"A clone of the PathOS terminal UI from the horror game, SOMA. It is a showcase of the capabilities of CSS's 9-slice imaging method. It features custom sound effects and cursors as well.",
+			productionUrl: '//pathos.realsgii2.dev/',
+			sourceUrl: '//github.com/RealSGII2/pathOS-ui',
+		},
+	],
+	other: [
+		{
+			name: 'Musical Minesweeper',
+			description:
+				'A recreation of Minesweeper made for music nerds. Numbers are replaced with musical notes.',
+			productionUrl: '//minesweeper.realsgii2.dev/',
+			sourceUrl: '//github.com/RealSGII2/musical-minesweeper',
+		},
+		{
+			name: 'MEE6 Level Calculator',
+			description:
+				"This calculates the amount of messages and experience you'd need to get a specific level in MEE6, the Discord bot.",
+			productionUrl: '//mee6-calculator.realsgii2.dev/',
+			sourceUrl: null,
+		},
+		{
+			name: 'Benny Help',
+			description: 'A documentation website for the Discord bot, Benny',
+			productionUrl: null,
+			sourceUrl: '//github.com/RealSGII2/benny-help',
+		},
+		{
+			name: 'This Website :)',
+			description:
+				'An award winning* portfolio for the person who made this website.',
+			productionUrl: null,
+			sourceUrl: '//github.com/RealSGII2/homepage-3.1',
+		},
+	],
+};
 
 const HeroImage = styled('div', {
 	borderRadius: 24,
@@ -135,7 +127,8 @@ const Home: NextPage = () => {
 						<Flex style={{ marginTop: 24, marginBottom: 64 }}>
 							<HeroButton
 								style={{ marginRight: 12, paddingRight: 20 }}
-								as='a' href='#about'
+								as='a'
+								href='#about'
 							>
 								<span style={{ marginRight: 8 }}>About me</span>
 
@@ -156,7 +149,7 @@ const Home: NextPage = () => {
 								</svg> */}
 							</HeroButton>
 
-							<HeroButton secondary  as='a' href='#projects'>
+							<HeroButton secondary as='a' href='#projects'>
 								<span>My projects</span>
 							</HeroButton>
 						</Flex>
@@ -171,7 +164,7 @@ const Home: NextPage = () => {
 					</div>
 				</HeroBox>
 			</GriddedHeroBox>
-			<MutedColoredBox id="about">
+			<MutedColoredBox id='about'>
 				<ContentBox>
 					<Flex style={{ padding: 0 }} flipOnSmall gap={32}>
 						<div style={{ width: 256, flexShrink: 0 }}>
@@ -230,11 +223,11 @@ const Home: NextPage = () => {
 					</Flex>
 				</ContentBox>
 
-				<ContentBox id="projects">
+				<ContentBox id='projects'>
 					<Text.SectionTitle style={{ marginTop: 48 }}>
 						Technical Skills
 					</Text.SectionTitle>
-					<Flex style={{ gap: 8 }} scrollerOnSmall>
+					<Flex style={{ gap: 8 }} wrap>
 						<Text.Skill>Typescript</Text.Skill>
 						<Text.Skill>TSX</Text.Skill>
 						<Text.Skill>HTML</Text.Skill>
@@ -249,80 +242,163 @@ const Home: NextPage = () => {
 				</ContentBox>
 
 				<ContentBox>
-					<Text.SectionTitle style={{ marginTop: 48 }}>
+					<Text.SectionTitle
+						style={{ marginTop: 64, marginBottom: 8 }}
+					>
 						Featured Projects
 					</Text.SectionTitle>
-					<Flex scrollerOnSmall>
-						<ProjectCard.Root>
-							<ProjectCard.Image src='https://cdn.realsgii2.dev/s/y3cnNv.png' />
+					{/* <Flex scrollerOnSmall> */}
+					<Row style={{ padding: 0 }}>
+						{projects.featured.map((project) => {
+							return (
+								<Col
+									key={project.name}
+									md={6}
+									sm={12}
+									style={{ marginTop: 16 }}
+								>
+									<ProjectCard.Root>
+										<ProjectCard.Image
+											src={project.image}
+										/>
 
-							<ProjectCard.Body>
-								<ProjectCard.Title>
-									West Swim & Dive
-								</ProjectCard.Title>
+										<ProjectCard.Body>
+											<ProjectCard.Title>
+												{project.name}
+											</ProjectCard.Title>
 
-								<Text.Body>
-									A forums-styled website built for a Swim &
-									Dive team for a local high school. It
-									features custom pages and moderation tools.
-								</Text.Body>
+											<Text.Body>
+												{project.description}
+											</Text.Body>
 
-								<div style={{ flex: 1 }} />
+											<div style={{ flex: 1 }} />
 
-								<Flex style={{ alignItems: 'center' }}>
-									<HeroButton as='a' href='//www.westswimdive.org/' rel='noreferer' target='_blank'>
-										<span>Visit</span>
-									</HeroButton>
+											<Flex
+												style={{ alignItems: 'center' }}
+											>
+												<HeroButton
+													as='a'
+													href={project.productionUrl}
+													rel='noreferer'
+													target='_blank'
+												>
+													<span>Visit</span>
+												</HeroButton>
 
-									<span style={{ marginLeft: 16 }}>
-										Source code is not available.
-									</span>
-								</Flex>
-							</ProjectCard.Body>
-						</ProjectCard.Root>
+												{project.sourceUrl ? (
+													<HeroButton
+														secondary
+														as='a'
+														href={project.sourceUrl}
+														rel='noreferer'
+														target='_blank'
+														style={{
+															marginLeft: 8,
+														}}
+													>
+														<span>View source</span>
+													</HeroButton>
+												) : (
+													<span
+														style={{
+															marginLeft: 16,
+														}}
+													>
+														Source code is not
+														available.
+													</span>
+												)}
+											</Flex>
+										</ProjectCard.Body>
+									</ProjectCard.Root>
+								</Col>
+							);
+						})}
 
-						<ProjectCard.Root style={{ marginLeft: 16 }}>
-							<ProjectCard.Image src='https://cdn.realsgii2.dev/s/inF5WP.png' />
+						{projects.other.map((project) => {
+							return (
+								<Col
+									key={project.name}
+									md={6}
+									sm={12}
+									style={{ marginTop: 16 }}
+								>
+									<ProjectCard.Root>
+										<ProjectCard.Body>
+											<ProjectCard.Title>
+												{project.name}
+											</ProjectCard.Title>
 
-							<ProjectCard.Body>
-								<ProjectCard.Title>PATHOS-II</ProjectCard.Title>
+											<Text.Body style={{ fontSize: 18 }}>
+												{project.description}
+											</Text.Body>
 
-								<Text.Body>
-									A clone of the PathOS terminal UI from the
-									horror game, SOMA. It is a showcase of the
-									capabilities of CSS&apos;s 9-slice imaging
-									method. It features custom sound effects and
-									cursors as well.
-								</Text.Body>
+											<div style={{ flex: 1 }} />
 
-								<div style={{ flex: 1 }} />
+											<Flex
+												style={{ alignItems: 'center' }}
+											>
+												{project.productionUrl && (
+													<HeroButton
+														small
+														as='a'
+														href={
+															project.productionUrl
+														}
+														rel='noreferer'
+														target='_blank'
+														style={{
+															marginRight: 8,
+														}}
+													>
+														<span>Visit</span>
+													</HeroButton>
+												)}
 
-								<Flex style={{ alignItems: 'center' }}>
-									<HeroButton as='a' href='//pathos.realsgii2.dev/' rel='noreferer' target='_blank'>
-										<span>Visit</span>
-									</HeroButton>
+												{project.sourceUrl ? (
+													<HeroButton
+														secondary
+														small
+														as='a'
+														href={project.sourceUrl}
+														rel='noreferer'
+														target='_blank'
+													>
+														<span>View source</span>
+													</HeroButton>
+												) : (
+													<span
+														style={{
+															marginLeft: 8,
+														}}
+													>
+														Source code is not
+														available.
+													</span>
+												)}
+											</Flex>
+										</ProjectCard.Body>
+									</ProjectCard.Root>
+								</Col>
+							);
+						})}
+						{/* </Flex> */}
+					</Row>
 
-									<HeroButton
-										secondary
-										style={{ marginLeft: 8 }}
-										as='a' href='//github.com/RealSGII2/pathOS-ui' rel='noreferer' target='_blank'
-									>
-										<span>View source</span>
-									</HeroButton>
-								</Flex>
-							</ProjectCard.Body>
-						</ProjectCard.Root>
-					</Flex>
+					<Text.JokeDisclaimer>* Self-awarded</Text.JokeDisclaimer>
+
+					<div style={{ textAlign: 'center', padding: 0 }}>
+						<HeroButton
+							as='a'
+							href='//github.com/realsgii2'
+							rel='noreferer'
+							target='_blank'
+						>
+							<span>View all on GitHub</span>
+						</HeroButton>
+					</div>
 				</ContentBox>
 			</MutedColoredBox>
-
-			{/* <HeroBox overlay>
-				<Flow
-					initialNodes={showcaseNodes}
-					initialEdges={showcaseEdges}
-					headlineRef={headlineRef}
-				/>
-			</HeroBox> */}
 		</>
 	);
 };

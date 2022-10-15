@@ -51,6 +51,12 @@ export const Body = styled('p', sharedStyles, {
 	color: '$fg-body',
 })
 
+export const JokeDisclaimer = styled('p', sharedStyles, {
+	fontSize: 14,
+	color: '$fg-body',
+	fontStyle: 'italic',
+})
+
 export const Skill = styled('span', sharedStyles, {
 	fontSize: 18,
 	color: '$fg-body',

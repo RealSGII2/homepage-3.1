@@ -12,6 +12,11 @@ const Flex = styled('div', {
 	},
 
 	variants: {
+		wrap: {
+			true: {
+				flexWrap: 'wrap',
+			},
+		},
 		flipOnSmall: {
 			true: {
 				'@smallScreen': {

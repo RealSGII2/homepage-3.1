@@ -7,12 +7,17 @@ import HeroButton from 'components/HeroButton';
 import { useEffect } from 'react';
 import darkTheme from 'styles/darkTheme';
 
+import 'react-flexbox-grid/dist/react-flexbox-grid.css';
+
 function MyApp({ Component, pageProps }: AppProps) {
 	globalStyles();
 
 	useEffect(() => {
-		if (typeof document === 'undefined') return;
-		document.body.className = darkTheme;
+		if (typeof document === 'undefined' || typeof window === 'undefined')
+			return;
+			
+		if (window.matchMedia('(prefers-color-scheme: dark)'))
+			document.body.className = darkTheme;
 	}, []);
 
 	return (
@@ -25,10 +30,22 @@ function MyApp({ Component, pageProps }: AppProps) {
 							<ToggleMenuButton />
 						</div>
 						<div>
-							<HeroButton medium tertiary tertiaryAlt as='a' href='#about'>
+							<HeroButton
+								medium
+								tertiary
+								tertiaryAlt
+								as='a'
+								href='#about'
+							>
 								<span>About me</span>
 							</HeroButton>
-							<HeroButton medium tertiary tertiaryAlt as='a' href='#projects'>
+							<HeroButton
+								medium
+								tertiary
+								tertiaryAlt
+								as='a'
+								href='#projects'
+							>
 								<span>Featured projects</span>
 							</HeroButton>
 						</div>

@@ -1,10 +1,10 @@
 import { styled } from 'styles/stitches';
 
 export const Root = styled('div', {
-	maxWidth: 'min(560px, calc(100vw - 4rem))',
-
 	display: 'flex',
 	flexDirection: 'column',
+
+	height: '100%',
 
 	borderRadius: 8,
 	backgroundColor: '$bg-default',
@@ -32,7 +32,7 @@ export const Title = styled('h2', {
 });
 
 export const Image = styled('img', {
-	maxWidth: 560,
+	width: '100%',
 	borderTopLeftRadius: 'inherit',
 	borderTopRightRadius: 'inherit',
 });
