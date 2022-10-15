@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 import darkTheme from 'styles/darkTheme';
 
 import 'react-flexbox-grid/dist/react-flexbox-grid.css';
+import Meta from 'components/head/Meta';
+import { Title } from 'components/ProjectCard';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	globalStyles();
@@ -15,13 +17,85 @@ function MyApp({ Component, pageProps }: AppProps) {
 	useEffect(() => {
 		if (typeof document === 'undefined' || typeof window === 'undefined')
 			return;
-			
+
 		if (window.matchMedia('(prefers-color-scheme: dark)'))
 			document.body.className = darkTheme;
 	}, []);
 
 	return (
 		<>
+			<Head>
+				<Meta name='viewport' content='width=device-width' />
+				<Meta
+					name='author'
+					ogpName='site_name'
+					content='wwise'
+				/>
+
+				<Title>William Wise (@RealSGII2)</Title>
+
+				<Meta
+					name='description'
+					ogpName='^'
+					twitterName='^'
+					content="Hello, I'm William Wise. I'm a hobbyist web developer based in Arkansas. I like to build things that allow others to do things."
+				/>
+
+				<Meta
+					name='image'
+					ogpName='^'
+					twitterName='^'
+					content='/embedBanner.png'
+				/>
+
+				<Meta
+					twitterName='image:src'
+					content='/embedBanner.png'
+				/>
+
+				<Meta
+					name='keywords'
+					content='portfolio, skills, developer, development, nodejs, react, scss, typescript, javascript, css, html, design'
+				/>
+
+				<Meta twitterName='card' content='summary_large_image' />
+
+				<Meta ogpName='locale' content='en_US' />
+
+				<Meta name='theme-color' content='#8bc8dc' />
+				<Meta
+					name='apple-mobile-web-app-status-bar-style'
+					content='#8bc8dc'
+				/>
+				<Meta name='msapplication-TileColor' content='#8bc8dc' />
+				<Meta name='msapplication-navbutton-color' content='#8bc8dc' />
+
+				<Meta
+					name='url'
+					ogpName='^'
+					twitterName='^'
+					content='https://wwise.dev/'
+				/>
+				<link rel='canonical' href='https://wwise.dev' />
+
+				<link
+					rel='icon'
+					href='/favicon.ico'
+				/>
+				<link
+					rel='apple-touch-icon'
+					href='/favicon.ico'
+				/>
+				<link
+					rel='apple-touch-icon-precomposed'
+					href='/favicon.ico'
+				/>
+				<link
+					rel='msapplication-TileImage'
+					href='/favicon.ico'
+				/>
+			</Head>
+
 			<Appbar.Root>
 				{({ ToggleMenuButton }) => (
 					<>
