@@ -26,13 +26,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<>
 			<Head>
 				<Meta name='viewport' content='width=device-width' />
-				<Meta
-					name='author'
-					ogpName='site_name'
-					content='wwise'
-				/>
+				<Meta name='author' ogpName='site_name' content='wwise' />
 
 				<Title>William Wise (@RealSGII2)</Title>
+				<title>William Wise (@RealSGII2)</title>
 
 				<Meta
 					name='description'
@@ -48,10 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 					content='/embedBanner.png'
 				/>
 
-				<Meta
-					twitterName='image:src'
-					content='/embedBanner.png'
-				/>
+				<Meta twitterName='image:src' content='/embedBanner.png' />
 
 				<Meta
 					name='keywords'
@@ -78,22 +72,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 				/>
 				<link rel='canonical' href='https://wwise.dev' />
 
-				<link
-					rel='icon'
-					href='/favicon.ico'
-				/>
-				<link
-					rel='apple-touch-icon'
-					href='/favicon.ico'
-				/>
-				<link
-					rel='apple-touch-icon-precomposed'
-					href='/favicon.ico'
-				/>
-				<link
-					rel='msapplication-TileImage'
-					href='/favicon.ico'
-				/>
+				<link rel='icon' href='/favicon.ico' />
+				<link rel='apple-touch-icon' href='/favicon.ico' />
+				<link rel='apple-touch-icon-precomposed' href='/favicon.ico' />
+				<link rel='msapplication-TileImage' href='/favicon.ico' />
 			</Head>
 
 			<Appbar.Root>
@@ -124,7 +106,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 							</HeroButton>
 						</div>
 						<div>
-							<HeroButton tertiary icon>
+							<HeroButton
+								tertiary
+								icon
+								as='a'
+								href='//github.com/realsgii2'
+								rel='noreferer'
+								target='_blank'
+							>
 								<svg
 									height='24'
 									aria-hidden='true'

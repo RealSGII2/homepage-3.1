@@ -105,6 +105,7 @@ const Home: NextPage = () => {
 		<>
 			<Head>
 				<Title>William Wise (@RealSGII2)</Title>
+				<title>William Wise (@RealSGII2)</title>
 			</Head>
 
 			<GriddedHeroBox ref={headlineRef as any}>
