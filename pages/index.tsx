@@ -162,11 +162,11 @@ const Home: NextPage = () => {
 						</Flex>
 
 						<Flex gap={16} flipOnSmall>
-							<Statistic title='Happy Users (2021)'>
-								27,983
+							<Statistic title='Happy Users (2022)'>
+								58,920
 							</Statistic>
-							<Statistic title='Official Websites'>11</Statistic>
-							<Statistic title='Satisfied Clients'>2</Statistic>
+							<Statistic title='Official Websites'>12</Statistic>
+							<Statistic title='Satisfied Clients'>3</Statistic>
 						</Flex>
 					</div>
 				</HeroBox>
