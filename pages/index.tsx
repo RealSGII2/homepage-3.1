@@ -18,20 +18,20 @@ import Title from 'components/head/Title';
 const projects = {
 	featured: [
 		{
+			name: 'Wise Software Documentation',
+			image: 'https://cdn.realsgii2.dev/homepage/wise-software-docs.png',
+			description:
+				"A documentation website, built for Wise Software, to guide users on how their products work and how to use them. It uses GitHub for hosting the documentation files, features a directoy-based routing structure, and has extended Markdown support. Source is hidden for now, until we work out if we want it public or not.",
+			productionUrl: '//wise.wwise.dev/enterprise',
+			sourceUrl: null,
+		},
+		{
 			name: 'West Swim & Dive',
 			image: 'https://cdn.realsgii2.dev/s/y3cnNv.png',
 			description:
 				'A forums-styled website built for a Swim & Dive team for a local high school. It features custom pages and moderation tools.',
 			productionUrl: '//www.westswimdive.org/',
 			sourceUrl: null,
-		},
-		{
-			name: 'PATHOS-II',
-			image: 'https://cdn.realsgii2.dev/s/inF5WP.png',
-			description:
-				"A clone of the PathOS terminal UI from the horror game, SOMA. It is a showcase of the capabilities of CSS's 9-slice imaging method. It features custom sound effects and cursors as well.",
-			productionUrl: '//pathos.realsgii2.dev/',
-			sourceUrl: '//github.com/RealSGII2/pathOS-ui',
 		},
 	],
 	other: [
@@ -50,10 +50,11 @@ const projects = {
 			sourceUrl: null,
 		},
 		{
-			name: 'Benny Help',
-			description: 'A documentation website for the Discord bot, Benny',
-			productionUrl: null,
-			sourceUrl: '//github.com/RealSGII2/benny-help',
+			name: 'PATHOS-II',
+			description:
+				"A clone of the PathOS terminal UI from the horror game, SOMA. It is a showcase of the capabilities of CSS's 9-slice imaging method. It features custom sound effects and cursors as well.",
+			productionUrl: '//pathos.realsgii2.dev/',
+			sourceUrl: '//github.com/RealSGII2/pathOS-ui',
 		},
 		{
 			name: 'This Website :)',
